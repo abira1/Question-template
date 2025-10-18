@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:connect="http://connect.ucles.org.uk/ns/ConnectDeliveryEngine" xmlns:raphaelChart="http://connect.ucles.org.uk/ns/QTICharts" xmlns:sem="http://connect.ucles.org.uk/ns/QTIExtendedSemantics" connect:class="assessmentTest">
+<head>
+  <title>IELTS Writing Test Interface</title>
+  <link href="Writing/writing-part-1/css/jquery-ui.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/base.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/access.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/banner.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/navigation.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/tools.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/main.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/item.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/calc.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/chart.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/notepad.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/instructions.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/jquery.contextMenu.css" rel="stylesheet"/>
+  <link href="Writing/writing-part-1/css/custom.css" rel="stylesheet"/>
+  
+  <connect:timeLimits maxTime="3600"/>
+  
+  <script src="Writing/writing-part-1/js/jquery.js"></script>
+  <script src="Writing/writing-part-1/js/jquery-ui.js"></script>
+  <script src="Writing/writing-part-1/js/jquery.throttle-debounce.js"></script>
+  <script src="Writing/writing-part-1/js/ulib.js"></script>
+  <script src="Writing/writing-part-1/js/jxon.js"></script>
+  <script src="Writing/writing-part-1/js/biginteger.js"></script>
+  <script src="Writing/writing-part-1/js/raphael.js"></script>
+  <script src="Writing/writing-part-1/js/d3.js"></script>
+  <script src="Writing/writing-part-1/js/rangy-core.js"></script>
+  <script src="Writing/writing-part-1/js/rangy-classapplier.js"></script>
+  <script src="Writing/writing-part-1/js/rangy-selectionsaverestore.js"></script>
+  <script src="Writing/writing-part-1/js/rangy-serializer.js"></script>
+  <script src="Writing/writing-part-1/js/jquery.validate.js"></script>
+  <script src="Writing/writing-part-1/js/jquery.ui.position.js"></script>
+  <script src="Writing/writing-part-1/js/jquery.contextMenu.js"></script>
+  <script src="Writing/writing-part-1/js/notes.js"></script>
+  <script src="Writing/writing-part-1/js/jquery.jplayer.min.js"></script>
+  
+  <script type="text/javascript">
+    var qti = {};
+    qti.appScriptsLoad = true;
+    qti.preloadTestContents = true;
+    qti.inContextHelp = 2;
+    qti.setTextareaHeight = true;
+    qti.showCISForm = false;
+    qti.clearAllNotes = true;
+  </script>
+  
+  <script src="Writing/writing-part-1/js/qti.js"></script>
+  <script data-main="Writing/writing-part-1/js/app.js" src="Writing/writing-part-1/js/require.js"></script>
+</head>
+
+<body class="loading">
+  
+  <!-- Banner Section -->
+  <div role="banner">
+    <div id="banner">
+      <div>
+        <img alt="IELTS" src="Writing/writing-part-1/images/banner/IELTSlogo.png" height="60px" width="206px" class="ieltslogo"/>
+        <img alt="IELTS Partners" src="Writing/writing-part-1/images/banner/IELTSpartners.jpg" class="ieltspartners"/>
+      </div>
+    </div>
+    
+    <!-- Test Banner with Candidate Info and Timer -->
+    <div id="test-banner">
+      <p id="candidate">
+        <span id="candidate-name-label">Candidate name:</span>
+        <strong aria-labelled-by="candidate-name-label" class="candidate-name">XXXX XXXXXXX</strong>
+        <span> - </span>
+        <span id="candidate-number-label">Candidate number:</span>
+        <strong aria-labelled-by="candidate-number-label" class="candidate-number">123456</strong>
+      </p>
+      
+      <p id="timer">
+        <span class="reader-only" id="timer-label">Time:</span>
+        <span aria-labelled-by="timer-label" connect:function="timer">
+          <em></em>
+          <span>minutes left</span>
+        </span>
+      </p>
+      
+      <!-- NO AUDIO CONTROL FOR WRITING -->
+      
+      <!-- Banner Controls -->
+      <ul id="banner-controls" role="toolbar">
+        <li connect:class="floatingTool"><a href="#" connect:class="settingsLink">Settings</a></li>
+        <li connect:class="floatingTool"><a href="#" connect:class="helpLink">Help<span> </span></a></li>
+        <li connect:class="floatingTool"><a href="#" connect:class="lockLink">Hide</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Navigation Section -->
+  <div role="navigation">
+    <h1 class="reader-only">Navigation</h1>
+    <div class="maximised" id="navigation-bar">
+      <div connect:class="testPart" connect:identifier="IELTS_WRITING_TEST">
+        <ul>
+          <li connect:class="assessmentSection" connect:identifier="WritingSection">
+            <span class="section-label">Writing Tasks</span>
+            <ul>
+              <li connect:class="assessmentItemRef" connect:identifier="writing-part-1">
+                <a href="Writing/writing-part-1/index.xhtml">
+                  <span class="question-label">Writing Part 1</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="writing-part-2">
+                <a href="Writing/writing-part-2/index.xhtml">
+                  <span class="question-label">Writing Part 2</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="views">
+          <a title="switch view to navigation summary" class="minimise" href="#"><span>navigation summary</span></a>
+          <a title="switch view to navigation details" class="maximise" href="#"><span>navigation details</span></a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Navigation Controls -->
+    <label id="review-checkbox">
+      <input connect:function="mark-for-review" type="checkbox"/>
+      Review
+    </label>
+    <a title="Previous Question" connect:function="previous"><span class="reader-only">Previous Question</span></a>
+    <a title="Next Question" href="#" connect:function="next"><span class="reader-only">Next Question</span></a>
+  </div>
+  
+  <!-- Main Content Area -->
+  <div role="main" id="main-content">
+    <!-- Dynamic content will be loaded here -->
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:connect="http://connect.ucles.org.uk/ns/ConnectDeliveryEngine" xmlns:raphaelChart="http://connect.ucles.org.uk/ns/QTICharts" xmlns:sem="http://connect.ucles.org.uk/ns/QTIExtendedSemantics" connect:class="assessmentTest">
+<head>
+  <title>IELTS Listening Test Interface</title>
+  <link href="Listening/Fill in the gaps/css/jquery-ui.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/base.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/access.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/banner.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/navigation.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/tools.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/main.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/item.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/calc.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/chart.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/notepad.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/instructions.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/jquery.contextMenu.css" rel="stylesheet"/>
+  <link href="Listening/Fill in the gaps/css/custom.css" rel="stylesheet"/>
+  
+  <connect:timeLimits maxTime="342"/>
+  
+  <script src="Listening/Fill in the gaps/js/jquery.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery-ui.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery.throttle-debounce.js"></script>
+  <script src="Listening/Fill in the gaps/js/ulib.js"></script>
+  <script src="Listening/Fill in the gaps/js/jxon.js"></script>
+  <script src="Listening/Fill in the gaps/js/biginteger.js"></script>
+  <script src="Listening/Fill in the gaps/js/raphael.js"></script>
+  <script src="Listening/Fill in the gaps/js/d3.js"></script>
+  <script src="Listening/Fill in the gaps/js/rangy-core.js"></script>
+  <script src="Listening/Fill in the gaps/js/rangy-classapplier.js"></script>
+  <script src="Listening/Fill in the gaps/js/rangy-selectionsaverestore.js"></script>
+  <script src="Listening/Fill in the gaps/js/rangy-serializer.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery.validate.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery.ui.position.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery.contextMenu.js"></script>
+  <script src="Listening/Fill in the gaps/js/notes.js"></script>
+  <script src="Listening/Fill in the gaps/js/jquery.jplayer.min.js"></script>
+  
+  <script type="text/javascript">
+    var qti = {};
+    qti.appScriptsLoad = true;
+    qti.preloadTestContents = true;
+    qti.inContextHelp = 2;
+    qti.setTextareaHeight = true;
+    qti.showCISForm = false;
+    qti.clearAllNotes = true;
+  </script>
+  
+  <script src="Listening/Fill in the gaps/js/qti.js"></script>
+  <script data-main="Listening/Fill in the gaps/js/app.js" src="Listening/Fill in the gaps/js/require.js"></script>
+</head>
+
+<body class="loading">
+  
+  <!-- Banner Section -->
+  <div role="banner">
+    <div id="banner">
+      <div class="clearfix">
+        <img alt="IELTS" src="Listening/Fill in the gaps/images/banner/IELTSlogo.png" height="60px" width="206px" class="ieltslogo"/>
+        <img alt="IELTS Partners" src="Listening/Fill in the gaps/images/banner/IELTSpartners.jpg" class="ieltspartners"/>
+      </div>
+    </div>
+    
+    <!-- Test Banner with Candidate Info and Timer -->
+    <div id="test-banner">
+      <p id="candidate">
+        <span id="candidate-name-label">Candidate name:</span>
+        <span aria-labelled-by="candidate-name-label" class="candidate-name">XXXX XXXXXXX</span>
+        <span> - </span>
+        <span id="candidate-number-label">Candidate number:</span>
+        <span aria-labelled-by="candidate-number-label" class="candidate-number">123456</span>
+      </p>
+      
+      <p id="timer">
+        <span class="reader-only" id="timer-label">Time:</span>
+        <span aria-labelled-by="timer-label" connect:function="timer">
+          <em></em>
+          <span>minutes left</span>
+        </span>
+      </p>
+      
+      <!-- Audio Control Bar - ONLY FOR LISTENING -->
+      <div id="audio-control">
+        <div id="slider"></div>
+        <input type="hidden" id="amount"/>
+        <input value="test-content/Audio_OGG-1.OGG" type="hidden" id="main-audio-content"/>
+      </div>
+      <div id="audio-content"></div>
+      
+      <!-- Banner Controls -->
+      <ul id="banner-controls" role="toolbar">
+        <li connect:class="floatingTool"><a href="#" connect:class="settingsLink">Settings</a></li>
+        <li connect:class="floatingTool"><a href="#" connect:class="helpLink">Help<span> </span></a></li>
+        <li connect:class="floatingTool"><a href="#" connect:class="lockLink">Hide</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Navigation Section -->
+  <div role="navigation">
+    <h1 class="reader-only">Navigation</h1>
+    <div class="maximised" id="navigation-bar">
+      <div connect:class="testPart" connect:identifier="IELTS_LISTENING_TEST">
+        <ul>
+          <li connect:class="assessmentSection" connect:identifier="ListeningSection">
+            <span class="section-label">Listening Question Types</span>
+            <ul>
+              <li connect:class="assessmentItemRef" connect:identifier="fill-in-gaps">
+                <a href="Listening/Fill in the gaps/index.xhtml">
+                  <span class="question-label">Fill in the gaps</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="fill-in-gaps-short">
+                <a href="Listening/Fill in the gaps short answers/index.xhtml">
+                  <span class="question-label">Fill in the gaps short answers</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="flow-chart">
+                <a href="Listening/Flow-chart Completion/index.xhtml">
+                  <span class="question-label">Flow-chart Completion</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="form-completion">
+                <a href="Listening/Form Completion/index.xhtml">
+                  <span class="question-label">Form Completion</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="map-labelling">
+                <a href="Listening/Labelling on a map/index.xhtml">
+                  <span class="question-label">Labelling on a map</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="matching">
+                <a href="Listening/Matching/index.xhtml">
+                  <span class="question-label">Matching</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="mcq-multiple">
+                <a href="Listening/Multiple Choice (more than one answer)/index.xhtml">
+                  <span class="question-label">Multiple Choice (more than one answer)</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="mcq-single">
+                <a href="Listening/Multiple Choice (one answer)/index.xhtml">
+                  <span class="question-label">Multiple Choice (one answer)</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="sentence-completion">
+                <a href="Listening/Sentence Completion/index.xhtml">
+                  <span class="question-label">Sentence Completion</span>
+                </a>
+              </li>
+              <li connect:class="assessmentItemRef" connect:identifier="table-completion">
+                <a href="Listening/Table Completion/index.xhtml">
+                  <span class="question-label">Table Completion</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="views">
+          <a title="switch view to navigation summary" class="minimise" href="#"><span>navigation summary</span></a>
+          <a title="switch view to navigation details" class="maximise" href="#"><span>navigation details</span></a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Navigation Controls -->
+    <label id="review-checkbox">
+      <input connect:function="mark-for-review" type="checkbox"/>
+      Review
+    </label>
+    <a title="Previous Question" connect:function="previous"><span class="reader-only">Previous Question</span></a>
+    <a title="Next Question" href="#" connect:function="next"><span class="reader-only">Next Question</span></a>
+  </div>
+  
+  <!-- Main Content Area -->
+  <div role="main" id="main-content">
+    <!-- Dynamic content will be loaded here -->
+  </div>
+  
+</body>
+</html>
