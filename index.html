@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test Interface - Select Test Type</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .test-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .test-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .test-card .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .test-card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .test-card .description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .test-card .question-count {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .listening-card {
+            border-top: 5px solid #667eea;
+        }
+        
+        .reading-card {
+            border-top: 5px solid #f093fb;
+        }
+        
+        .writing-card {
+            border-top: 5px solid #4facfe;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+        
+        .footer p {
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .test-card h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 IELTS Test Interface</h1>
+            <p>Select your test type to begin</p>
+        </div>
+        
+        <div class="test-types">
+            <a href="listening.xhtml" class="test-card listening-card">
+                <div class="icon">🎧</div>
+                <h2>Listening</h2>
+                <p class="description">
+                    Complete listening exercises with audio playback controls. 
+                    Includes volume control and various question types.
+                </p>
+                <span class="question-count">10 Question Types</span>
+            </a>
+            
+            <a href="reading.xhtml" class="test-card reading-card">
+                <div class="icon">📖</div>
+                <h2>Reading</h2>
+                <p class="description">
+                    Practice reading comprehension with diverse question formats. 
+                    Test your understanding and analytical skills.
+                </p>
+                <span class="question-count">12 Question Types</span>
+            </a>
+            
+            <a href="writing.xhtml" class="test-card writing-card">
+                <div class="icon">✍️</div>
+                <h2>Writing</h2>
+                <p class="description">
+                    Complete writing tasks with structured guidance. 
+                    Develop your writing skills across different formats.
+                </p>
+                <span class="question-count">2 Writing Tasks</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>💡 Each test type includes comprehensive navigation, instructions, and help features</p>
+        </div>
+    </div>
+</body>
+</html>
